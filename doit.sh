@@ -11,6 +11,7 @@ for i in /mnt/ris/rrc*/$YYYY.$MM/bview.$YYYY$MM$DD.0000.gz
 do
     bgpdump -m $i
 done | ./extract-as-links.py as-links.rrcALL.$YYYY-$MM-$DD.pcl ## extract as a python pcl file
+mv as-links.pcl as-links.rrcALL.$YYYY-$MM-$DD.pcl 
 ./calculate-peer-similarity.py as-links.rrcALL.$YYYY-$MM-$DD.pcl | gzip -9 > as-links-sim.rrcALL.$YYYY-$MM-$DD.txt
 
 #done | ./research-peer-similarity-as-links.py  | tee as-links-sim.rrcALL.$YYYY-$MM-$DD.txt
